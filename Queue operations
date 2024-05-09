@@ -1,0 +1,158 @@
+#include<stdio.h>
+#define N 5
+
+int queue[N];
+int Front = -1, Rear = -1;
+
+void enqueue() {
+    int item;
+    printf("Enter the item you want to insert into the queue\n");
+    scanf("%d", &item);
+    if (Rear == N - 1) {
+        printf("Queue Overflow condition\n");
+    }
+    else if (Front == -1 && Rear == -1) {
+        Front = 0;
+        Rear = 0;
+        queue[Rear] = item;
+    }
+    else {
+        Rear++;
+        queue[Rear] = item;
+    }
+}
+
+void dequeue() {
+    if (Front == -1) {
+        printf("Queue Underflow condition\n");
+    }
+    else {
+        printf("The element deleted is %d\n", queue[Front]);
+        if (Front == Rear) {
+            Front = -1;
+            Rear = -1;
+        }
+        else {
+            Front++;
+        }
+    }
+}
+
+void display() {
+    if (Front == -1) {
+        printf("The queue is empty\n");
+    }
+    else {
+        printf("The elements of the queue are:\n");
+        for (int i = Front; i <= Rear; i++) {
+            printf("%d\n", queue[i]);
+        }
+    }
+}
+
+int main() {
+    int c;
+    do {
+        printf("Enter your choice\n 1 for enqueue 2 for dequeue 3 for display and 4 for exit \n");
+        scanf("%d", &c);
+        switch (c) {
+            case 1:
+                enqueue();
+                break;
+            case 2:
+                dequeue();
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                printf("You have exited from the program\n");
+                break;
+            default:
+                printf("Invalid choice\n");
+                break;
+        }
+    } while (c != 4);
+
+    return 0;
+}
+Output
+Case1:
+Enter your choice
+ 1 for enqueue 2 for dequeue 3 for display and 4 for exit
+1
+Enter the item you want to insert into the queue
+2
+Enter your choice
+ 1 for enqueue 2 for dequeue 3 for display and 4 for exit
+1
+Enter the item you want to insert into the queue
+3
+Enter your choice
+ 1 for enqueue 2 for dequeue 3 for display and 4 for exit
+1
+Enter the item you want to insert into the queue
+4
+Enter your choice
+ 1 for enqueue 2 for dequeue 3 for display and 4 for exit
+2
+The element deleted is 2
+Enter your choice
+ 1 for enqueue 2 for dequeue 3 for display and 4 for exit
+3
+The elements of the queue are:
+3
+4
+Enter your choice
+ 1 for enqueue 2 for dequeue 3 for display and 4 for exit
+4
+You have exited from the program
+Case 2:
+Enter your choice
+ 1 for enqueue 2 for dequeue 3 for display and 4 for exit
+2
+Queue Underflow condition
+Enter your choice
+ 1 for enqueue 2 for dequeue 3 for display and 4 for exit
+1
+Enter the item you want to insert into the queue
+2
+Enter your choice
+ 1 for enqueue 2 for dequeue 3 for display and 4 for exit
+1
+Enter the item you want to insert into the queue
+3
+Enter your choice
+ 1 for enqueue 2 for dequeue 3 for display and 4 for exit
+1
+Enter the item you want to insert into the queue
+4
+Enter your choice
+ 1 for enqueue 2 for dequeue 3 for display and 4 for exit
+1
+Enter the item you want to insert into the queue
+5
+Enter your choice
+ 1 for enqueue 2 for dequeue 3 for display and 4 for exit
+1
+Enter the item you want to insert into the queue
+6
+Enter your choice
+ 1 for enqueue 2 for dequeue 3 for display and 4 for exit
+1
+Enter the item you want to insert into the queue
+7
+Queue Overflow condition
+Enter your choice
+ 1 for enqueue 2 for dequeue 3 for display and 4 for exit
+3
+The elements of the queue are:
+2
+3
+4
+5
+6
+Enter your choice
+ 1 for enqueue 2 for dequeue 3 for display and 4 for exit
+4
+You have exited from the program
