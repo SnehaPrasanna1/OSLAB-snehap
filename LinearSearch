@@ -1,0 +1,43 @@
+Linear search
+#include<stdio.h>
+void linear_search(int , int [],int );
+void main(){
+int i;
+int key;
+int n;
+int a[n];
+printf("Enter the number of elements\n");
+scanf("%d",&n);
+printf("Enter the elements\n");
+for (i=0;i<n;i++)
+scanf("%d",&a[i]);
+linear_search(n,a,key);
+printf("Enter the key to be searched\n");
+scanf("%d",&key);
+}
+void linear_search(int n, int a[], int key){
+for(int i=0;i<n;i++){
+if(a[i]==key){
+printf("element found at pos    %d",i+1);
+}
+else{
+printf("element not found");
+}
+}
+Output
+Case 1:
+Enter the number of elements 
+4
+Enter the elements 
+1 2 3 5
+Enter the key to be searched 
+2
+Element found at pos 2
+Case 2: 
+Enter the number of elements 
+5
+Enter the elements
+1 5 9 8 6
+Enter the key to be searched 
+3
+element not found
