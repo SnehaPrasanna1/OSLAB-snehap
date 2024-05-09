@@ -1,0 +1,143 @@
+#include<stdio.h>
+#define N 5
+int stack[N];
+int top=-1;
+void push(){
+int x;
+printf("Enter the element to be inserted into the stack\n");
+scanf("%d",&x);
+if(top==N-1){
+    printf("The stack is full, cannot insert\n");
+    printf("Overflow condition\n");
+}
+else{
+    top++;
+    stack[top]=x;
+    printf("The element inserted into the stack is %d\n",stack[top]);
+}
+}
+void pop(){
+if(top==-1){
+    printf("The stack is empty,cannot delete elements\n");
+    printf("Stack underflow condition\n");
+}
+else{
+    printf("The element deleted is %d\n",stack[top]);
+    top--;
+
+}
+}
+void display() {
+    if (top == -1) {
+        printf("The stack is empty\n");
+    }
+    else {
+        printf("The elements of the stack are:\n");
+        for (int i = top; i >= 0; i--) {
+            printf("%d\n", stack[i]);
+        }
+    }
+}
+int main() {
+    int c;
+    do {
+        printf("Enter your choice\n 1 for push 2 for pop 3 for display and 4 for exit \n");
+        scanf("%d", &c);
+        switch (c) {
+            case 1:
+                push();
+                break;
+            case 2:
+                pop();
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                printf("You have exited from the program\n");
+                break;
+            default:
+                printf("Invalid choice\n");
+                break;
+        }
+    } while (c != 4);
+
+    return 0;
+}
+Output
+Enter your choice
+ 1 for push 2 for pop 3 for display and 4 for exit
+1
+Enter the element to be inserted into the stack
+3
+The element inserted into the stack is 3
+Enter your choice
+ 1 for push 2 for pop 3 for display and 4 for exit
+1
+Enter the element to be inserted into the stack
+5
+The element inserted into the stack is 5
+Enter your choice
+ 1 for push 2 for pop 3 for display and 4 for exit
+1
+Enter the element to be inserted into the stack
+8
+The element inserted into the stack is 8
+Enter your choice
+ 1 for push 2 for pop 3 for display and 4 for exit
+1
+Enter the element to be inserted into the stack
+9
+The element inserted into the stack is 9
+Enter your choice
+ 1 for push 2 for pop 3 for display and 4 for exit
+1
+Enter the element to be inserted into the stack
+12
+The element inserted into the stack is 12
+Enter your choice
+ 1 for push 2 for pop 3 for display and 4 for exit
+1
+Enter the element to be inserted into the stack
+13
+The stack is full, cannot insert
+Overflow condition
+Enter your choice
+ 1 for push 2 for pop 3 for display and 4 for exit
+2
+The element deleted is 12
+Enter your choice
+ 1 for push 2 for pop 3 for display and 4 for exit
+2
+The element deleted is 9
+Enter your choice
+ 1 for push 2 for pop 3 for display and 4 for exit
+2
+The element deleted is 8
+Enter your choice
+ 1 for push 2 for pop 3 for display and 4 for exit
+2
+The element deleted is 5
+Enter your choice
+ 1 for push 2 for pop 3 for display and 4 for exit
+2
+The element deleted is 3
+Enter your choice
+ 1 for push 2 for pop 3 for display and 4 for exit
+2
+The stack is empty,cannot delete elements
+Stack underflow condition
+Enter your choice
+ 1 for push 2 for pop 3 for display and 4 for exit
+2
+The stack is empty,cannot delete elements
+Stack underflow condition
+Enter your choice
+ 1 for push 2 for pop 3 for display and 4 for exit
+3
+The stack is empty
+Enter your choice
+ 1 for push 2 for pop 3 for display and 4 for exit
+4
+You have exited from the program
+
