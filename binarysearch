@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void binary_search(int, int, int[], int, int); // Function declaration
+
+int main() {
+    int i, n;
+    printf("Enter the number of elements\n");
+    scanf("%d", &n);
+    
+    int l, m, key;
+    printf("Enter the value of l\n");
+    scanf("%d", &l);
+    printf("Enter the value of m\n");
+    scanf("%d", &m);
+    
+    int a[n];
+    printf("Enter the sorted elements\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+    
+    printf("Enter the key to be searched\n");
+    scanf("%d", &key);
+    
+    binary_search(n, l, a, m, key); // Function call
+    return 0;
+}
+
+void binary_search(int n, int l, int a[], int m, int key) {
+    int mid, pos = -1;
+    int low = 0, high = n - 1;
+    
+    while (low <= high) {
+        mid = (low + high) / 2;
+        if (a[mid] == key) {
+            pos = mid + 1;
+            printf("%d found at pos %d\n", key, pos);
+            return;
+        } else if (key > a[mid]) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    printf("Element not found\n");
+}
+output
+Case1:
+Enter the number of elements
+4
+Enter the value of l
+02
+Enter the value of m
+4
+Enter the sorted elements
+2 3 4 5
+Enter the key to be searched
+3
+3 found at pos 2
+
+Case2:
+Enter the number of elements
+4
+Enter the value of l
+0
+Enter the value of m
+2
+Enter the sorted elements
+1 2 3 4
+Enter the key to be searched
+8
+Element not found
+
+
+=== Code Execution Successful ===
